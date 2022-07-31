@@ -16,16 +16,6 @@ runs:
   steps:
   - uses: 'actions/checkout@v3'
   
-  - id: 'auth'
-    name: 'Authenticate to Google Cloud'
-    uses: 'google-github-actions/auth@v0'
-    with:
-      workload_identity_provider: 'projects/474377433429/locations/global/workloadIdentityPools/gh-pool/providers/gh-provider'
-      service_account: 'github-actions@ltx-research.iam.gserviceaccount.com'
-      
-  - name: 'Set up Cloud SDK'
-    uses: 'google-github-actions/setup-gcloud@v0'
-  
   - name: sementic versioning
     id: semver
     shell: bash
