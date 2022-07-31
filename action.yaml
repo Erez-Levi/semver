@@ -16,6 +16,14 @@ runs:
   steps:
   - uses: 'actions/checkout@v3'
   
+  - id: 'auth'
+    name: 'Authenticate to Google Cloud'
+    uses: 'google-github-actions/auth@v0'
+    with:
+      token_format: 'access_token'
+      workload_identity_provider: 'projects/474377433429/locations/global/workloadIdentityPools/gh-pool/providers/gh-provider'
+      service_account: 'github-actions@ltx-research.iam.gserviceaccount.com'
+  
   - name: sementic versioning
     id: semver
     shell: bash
