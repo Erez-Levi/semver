@@ -20,7 +20,7 @@ runs:
     id: semver
     shell: bash
     run: |
-      curr_tag=$(gcloud container images list-tags ${{ inputs.image_name }}/${{ inputs.docker_repo }} --filter="tags:*" awk '{print $2}' | head -2 | tail -1)
+      curr_tag=$(gcloud container images list-tags ${{ inputs.image_name }}/${{ inputs.docker_repo }} --filter="tags:*" | awk '{print $2}' | head -2 | tail -1)
       new_tag=$(${GITHUB_WORKSPACE}/.github/script.sh)
       echo "::set-output name=new_tag::$(echo $new_tag)"
       
