@@ -1,0 +1,23 @@
+name: 'semantic versioning'
+description: 'bump a version'
+
+inputs:
+  artifact:
+    description: 'path of the artifact to download'
+    required: false
+    default: '.'
+
+runs:
+  using: "composite"
+  steps:
+  - uses: 'actions/checkout@v3'
+  
+  - name: sementic versioning
+    id: semver
+    shell: bash
+    run: |
+      curr_tag=$(gcloud container images list-tags gcr.io/ltx-research/storage-manager-test --filter="tags:*" awk '{print $2}' | head -2 | tail -1)
+      
+      
+      
+    
