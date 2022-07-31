@@ -23,6 +23,9 @@ runs:
       token_format: 'access_token'
       workload_identity_provider: 'projects/474377433429/locations/global/workloadIdentityPools/gh-pool/providers/gh-provider'
       service_account: 'github-actions@ltx-research.iam.gserviceaccount.com'
+      
+  - name: 'Set up Cloud SDK'
+    uses: 'google-github-actions/setup-gcloud@v0'
   
   - name: sementic versioning
     id: semver
