@@ -1,7 +1,7 @@
 string=${{ github.event.head_commit.message }}
 if [[ $string == *"feat"* ]]; then
-  newtag=$(.github/increment_version.sh -m $curr_tag)
+  .github/increment_version.sh -m $curr_tag
 elif [[ $string == *"BREAKING CHANGE"* ]]; then
-  newtag-$(.github/increment_version.sh -M $curr_tag)
+  .github/increment_version.sh -M $curr_tag
 else
-  newtag=$(.github/increment_version.sh -p $curr_ta)
+  .github/increment_version.sh -p $curr_ta
